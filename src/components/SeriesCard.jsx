@@ -1,3 +1,6 @@
+import { useState } from "react";
+import SeasonList from "./SeasonList.jsx";
+
 function SeriesCard({
   title,
   genre,
@@ -7,8 +10,13 @@ function SeriesCard({
   nextYear,
   seasons,
 }) {
+  const [saved, setSaved] = useState(false);
+  const [showEpisodes, setShowEpisodes] = useState(false);
+
   return (
-    <article className="series-card">
+    <article
+      className={saved ? "series-card series-card--saved" : "series-card"}
+    >
       <div className="series-card__top">
         <h2 className="series-card__title">{title}</h2>
         <span className={ended ? "badge badge--ended" : "badge badge--running"}>
@@ -27,6 +35,17 @@ function SeriesCard({
       {nextYear !== undefined && (
         <p className="series-card__next">עונה חדשה ב־{nextYear}</p>
       )}
+
+      <div className="series-card__actions">
+        <button className="btn" onClick={() => setSaved(!saved)}>
+          {saved ? "★ שמורה" : "☆ לשמור"}
+        </button>
+        <button className="btn" onClick={() => setShowEpisodes(!showEpisodes)}>
+          {showEpisodes ? "הסתר פרקים" : "הצג פרקים"}
+        </button>
+      </div>
+
+      {showEpisodes && <SeasonList seasons={seasons} />}
     </article>
   );
 }
