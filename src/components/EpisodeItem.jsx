@@ -1,9 +1,10 @@
-function EpisodeItem({title, rating, duration}) {
-  let votes = 0;
+import { useState } from "react";
 
-  const addVote = () => {
-    votes = votes + 1;
-    console.log("votes:", votes);
+function EpisodeItem({title, rating, duration}) {
+  const [votes, setVotes] = useState(0);//initialize the vote count to 0
+
+  const addVote = () => {// Increment the vote count by 1
+    setVotes(votes + 1);
   };
 
   return (
