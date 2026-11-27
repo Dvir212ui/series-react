@@ -4,7 +4,7 @@ function SeasonList({ seasons }) {
   return (
     <div className="season-list">
       {seasons.length === 0 && <p className="empty">לסדרה הזאת עוד אין פרקים</p>}
-      {seasons.length &&
+      {seasons.length > 0 &&//render the seasons and episodes if there are any
         seasons.map(season => (
           <div className="season" key={season.number}>
             <h3 className="season__title">
