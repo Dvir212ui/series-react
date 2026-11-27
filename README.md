@@ -1,16 +1,23 @@
-# React + Vite
+# קטלוג סדרות
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+יישום אינטרנטי להצגת קטלוג סדרות, המאפשר סינון סדרות משודרות, מיון לפי שנת יציאה, צפייה בעונות ובפרקים והצבעה לפרקים.
 
-Currently, two official plugins are available:
+## הרצת הפרויקט
+1. התקנת הספריות הנדרשות:
+```bash
+npm install
+```
+2. הפעלת שרת הפיתוח המקומי:
+```bash
+npm run dev
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## תשובות לשאלות הסיכום
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. המסך לא השתנה כי ריאקט לא עוקבת אחרי משתנים רגילים, אז היא פשוט לא ידעה שהערך גדל. כשמחליפים לניהול מצב פנימי ריאקט שומרת את הערך ומציגה את המסך מחדש בכל פעם שהוא מתעדכן.
 
-## Expanding the Oxlint configuration
+2. בחרתי במזהה הייחודי של הסדרה כי ריאקט חייבת מזהה קבוע לכל פריט. אם משתמשים במיקום במערך ברגע שמסננים או ממיינים הסדרות זזות וריאקט מתבלבלת ביניהן.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+3. מיינו עותק כי לא משנים את המערך המקורי ישירות כדי למנוע שגיאות. פעולת המיון משנה את המערך שעליו היא רצה, ואם היינו ממיינים את מערך הסדרות המקורי עצמו הסדר ההתחלתי היה נהרס ולא היה אפשר לחזור אליו.
