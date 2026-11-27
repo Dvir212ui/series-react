@@ -3,7 +3,7 @@ import EpisodeItem from "./EpisodeItem.jsx";
 function SeasonList({ seasons }) {
   return (
     <div className="season-list">
-      {seasons.length === 0 &&<p className="empty">לסדרה הזאת עוד אין פרקים</p>}
+      {seasons.length === 0 && <p className="empty">לסדרה הזאת עוד אין פרקים</p>}
       {seasons.length &&
         seasons.map(season => (
           <div className="season" key={season.number}>
@@ -13,6 +13,7 @@ function SeasonList({ seasons }) {
             <ul className="episode-list">
               {season.episodes.map(episode => (
                 <EpisodeItem
+                  key={episode.id}
                   title={episode.title}
                   rating={episode.rating}
                   duration={episode.duration}
